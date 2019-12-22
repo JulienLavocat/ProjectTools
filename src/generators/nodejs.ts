@@ -60,7 +60,7 @@ export default class NodeJSGenerator extends Generator {
 
 	async performEslint() {
 		this.log("Initializing Eslint...");
-		await fs.writeFile(join(this.path, ".eslintrc.json"), JSON.stringify(require("../data/.eslintrc.json"), null, 2));
+		await fs.writeFile(join(this.path, ".eslintrc.json"), JSON.stringify(require("../data/nodejs-eslint.json"), null, 2));
 	}
 
 	async performAddDeps() {
