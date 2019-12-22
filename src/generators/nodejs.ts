@@ -17,6 +17,7 @@ export default class NodeJSGenerator extends Generator {
 		await this.performGitIgnore();
 		await this.performEslint();
 		await this.performAddDeps();
+
 		this.log("Project creation completed in " + (Date.now() - start) / 1000 + "s");
 	}
 
@@ -59,7 +60,7 @@ export default class NodeJSGenerator extends Generator {
 
 	async performEslint() {
 		this.log("Initializing Eslint...");
-		await fs.cp("./src/data/.eslintrc.json", join(this.path, ".eslintrc.json"));
+		await fs.writeFile(join(this.path, ".eslintrc.json"), JSON.stringify(require("../data/.eslintrc.json"), null, 2));
 	}
 
 	async performAddDeps() {
