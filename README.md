@@ -19,7 +19,7 @@ $ npm install -g @piigo/projecttools
 $ projecttools COMMAND
 running command...
 $ projecttools (-v|--version|version)
-@piigo/projecttools/0.1.0 win32-x64 node-v12.14.0
+@piigo/projecttools/0.1.1 win32-x64 node-v12.14.0
 $ projecttools --help [COMMAND]
 USAGE
   $ projecttools COMMAND
@@ -50,7 +50,7 @@ EXAMPLE
   $ projecttools create . nodejs
 ```
 
-_See code: [src\commands\create.ts](https://github.com/JulienLavocat/projecttools/blob/v0.1.0/src\commands\create.ts)_
+_See code: [src\commands\create.ts](https://github.com/JulienLavocat/projecttools/blob/v0.1.1/src\commands\create.ts)_
 
 ## `projecttools help [COMMAND]`
 

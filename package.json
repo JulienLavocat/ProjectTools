@@ -1,7 +1,7 @@
 {
   "name": "@piigo/projecttools",
   "description": "Project creation and managment",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Julien Lavocat",
   "bin": {
     "projecttools": "./bin/run"
