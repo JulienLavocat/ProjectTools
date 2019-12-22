@@ -1,23 +1,23 @@
 import { join } from "path";
-import { exec } from "child_process";
 import cli from "cli-ux";
-import fetch from "node-fetch";
 import fs from "../utils/fs";
 import cmd from "../utils/cmd";
+import fetchGitignore from "../utils/gitignore";
 import Generator from "./generator";
-
-const GITIGNORE_FETCh_URL = "https://gitignore.io/api/node,visualstudiocode,windows,macOS,linux";
 
 export default class NodeJSGenerator extends Generator {
 
 	name: string = "NodeJS";
 
 	async generate(): Promise<void> {
+		const start = Date.now();
+
 		await this.performNpmInit();
 		await this.performGitInit();
 		await this.performGitIgnore();
 		await this.performEslint();
 		await this.performAddDeps();
+		this.log("Project creation completed in " + (Date.now() - start) / 1000 + "s");
 	}
 
 	async performNpmInit() {
@@ -53,7 +53,7 @@ export default class NodeJSGenerator extends Generator {
 
 	async performGitIgnore() {
 		this.log("Adding gitignore...");
-		const gitignore = await fetch(GITIGNORE_FETCh_URL).then(res => res.text());
+		const gitignore = await fetchGitignore("node","visualstudiocode","windows","macOS","linux");
 		await fs.writeFile(join(this.path, ".gitignore"), gitignore);
 	}
 
@@ -63,8 +63,16 @@ export default class NodeJSGenerator extends Generator {
 	}
 
 	async performAddDeps() {
-		const dependencies = await cli.prompt("Add depedencies", {type: "normal"});
-		await cmd(this.path, `npm i ${dependencies}`);
+		const dependencies = await cli.prompt("Add depedencies", {type: "normal", required: false});
+		try {
+			if(dependencies)
+				await cmd(this.path, `npm i ${dependencies}`);
+			else
+				this.log("Skipped dependecies");
+		} catch (error) {
+			this.error(error, {exit: false});
+			this.error("An error occured while adding dependencies", {exit: false});
+		}
 	}
 
 }
