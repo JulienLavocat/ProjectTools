@@ -19,7 +19,7 @@ $ npm install -g projecttools
 $ projecttools COMMAND
 running command...
 $ projecttools (-v|--version|version)
-projecttools/0.0.0 win32-x64 node-v12.14.0
+projecttools/0.1.0 win32-x64 node-v12.14.0
 $ projecttools --help [COMMAND]
 USAGE
   $ projecttools COMMAND
@@ -28,28 +28,29 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`projecttools hello [FILE]`](#projecttools-hello-file)
+* [`projecttools create PATH TYPE`](#projecttools-create-path-type)
 * [`projecttools help [COMMAND]`](#projecttools-help-command)
 
-## `projecttools hello [FILE]`
+## `projecttools create PATH TYPE`
 
-describe the command here
+Create a new project
 
 ```
 USAGE
-  $ projecttools hello [FILE]
+  $ projecttools create PATH TYPE
+
+ARGUMENTS
+  PATH  Path leading to where the new project will be created
+  TYPE  Type of project (NodeJS, Unity, ...)
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -h, --help  show CLI help
 
 EXAMPLE
-  $ projecttools hello
-  hello world from ./src/hello.ts!
+  $ projecttools create . nodejs
 ```
 
-_See code: [src\commands\hello.ts](https://github.com/JulienLavocat/projecttools/blob/v0.0.0/src\commands\hello.ts)_
+_See code: [src\commands\create.ts](https://github.com/JulienLavocat/projecttools/blob/v0.1.0/src\commands\create.ts)_
 
 ## `projecttools help [COMMAND]`
 
