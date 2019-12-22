@@ -15,11 +15,11 @@ Project creation and managment
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g projecttools
+$ npm install -g @piigo/projecttools
 $ projecttools COMMAND
 running command...
 $ projecttools (-v|--version|version)
-projecttools/0.1.0 win32-x64 node-v12.14.0
+@piigo/projecttools/0.1.0 win32-x64 node-v12.14.0
 $ projecttools --help [COMMAND]
 USAGE
   $ projecttools COMMAND
