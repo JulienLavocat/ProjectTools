@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import Command from "@oclif/command";
 
 export default abstract class Generator {

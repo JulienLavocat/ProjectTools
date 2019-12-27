@@ -4,6 +4,7 @@ import fs from "../utils/fs";
 import cmd from "../utils/cmd";
 import fetchGitignore from "../utils/gitignore";
 import Generator from "./generator";
+import data from "../data";
 
 export default class NodeJSGenerator extends Generator {
 
@@ -60,7 +61,7 @@ export default class NodeJSGenerator extends Generator {
 
 	async performEslint() {
 		this.log("Initializing Eslint...");
-		await fs.writeFile(join(this.path, ".eslintrc.json"), JSON.stringify(require("../data/nodejs-eslint.json"), null, 2));
+		await fs.writeFile(join(this.path, ".eslintrc.json"), JSON.stringify(data.eslintNodejs, null, 2));
 	}
 
 	async performAddDeps() {
